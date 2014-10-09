@@ -25,7 +25,7 @@ if(isset($_POST))
 	
 	//removing the donation transactions that are completed for current user from trnsc table after user has been notified
 	$query="DELETE from trnsc WHERE loginId='$a' AND flag='1' ";
-        $result = mysql_query($query);
+        $result2 = mysql_query($query);
 
 	//sending the transaction details to user application
 	$row=mysql_fetch_array($result);
