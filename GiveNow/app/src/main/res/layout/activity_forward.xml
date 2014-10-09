@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.hp.givenow.Forward">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/primary_text_dark_nodisable"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:text="make donation for rs." />
+
+    <TextView
+        android:id="@+id/amountF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/primary_text_dark_nodisable"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Result here"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/messageF"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:hint="Message here"
+
+        android:textSize="19sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:alpha="0.85"
+            android:background="@android:drawable/dialog_holo_dark_frame"
+            android:text="Cancel"
+            android:textColor="@android:color/secondary_text_dark_nodisable" />
+
+        <Button
+            android:id="@+id/forward"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:alpha="0.85"
+            android:background="@android:drawable/dialog_holo_dark_frame"
+            android:text="Forward!"
+            android:textColor="@android:color/secondary_text_dark_nodisable" />
+    </RelativeLayout>
+</LinearLayout>

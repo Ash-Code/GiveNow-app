@@ -1,0 +1,72 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MyActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Login Screen"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/usernameLL"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="10dp"
+
+        android:background="@drawable/patched2"
+        android:hint="Enter username" />
+
+    <EditText
+        android:id="@+id/passwordLL"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/patched2"
+        android:hint="Enter password"
+        android:textSize="20sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/loginLB"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:alpha="0.85"
+            android:background="@android:drawable/dialog_holo_dark_frame"
+            android:text="Login"
+            android:textColor="@android:color/secondary_text_dark_nodisable" />
+
+        <Button
+            android:id="@+id/regiLB"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:alpha="0.85"
+            android:background="@android:drawable/dialog_holo_dark_frame"
+            android:text="Register"
+            android:textColor="@android:color/secondary_text_dark_nodisable" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="GiveNow app maintains only one user database per device. You can change your user credentials by clicking on 'Register' button" />
+
+</LinearLayout>
