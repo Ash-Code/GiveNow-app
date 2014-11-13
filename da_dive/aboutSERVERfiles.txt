@@ -1,1 +1,92 @@
+Database Schema
+---------------
+Table 1: user
+	//user details table
+	
+	id		int(11)		--AUTOINCREMENT --PRIMARY
+	loginId		varchar(20)
+	name		varchar(30)	
+	passw		varchar(30)
+	addr		varchar(60)
+	phno		varchar(15)
+	wallet_bal	double		--DEFAULT VALUE=0
 
+
+Table 2: trnsc
+	//transaction table
+	//flag value is maintained in the transaction table which denotes
+	// 0 -> 'donation is pending and havent found a pair'
+	// 1 -> 'donation is done and a pair has been found'
+
+//Note: We remove the rows whose donation is done only when client app that periodically checks
+//for status of its donation request comes online has successfully read the message & sent by others to him
+
+	tr_id		int(11)		--AUTOINCREMENT --PRIMARY
+	loginId		varchar(20)
+	donation	double		--DEFAULT VALUE=0
+	message		varchar(100)	
+	flag		tinyint(1)	--DEFAULT VALUE=0
+	donation_rec	double		--DEFAULT VALUE=0
+	message_rec	varchar(100)	
+
+
+
+-------------------------------------------------------------------------------
+About PHP files
+
+Files that setup DB:
+1. common.php
+2. configuration.php
+
+******************************************
+*************IMPORTANT SECTION************
+Files that communicate with the client and perform various operations:
+1. reg.php
+	Registration is done through this file
+	Input : JSON data 
+		attributes:  loginId, name, passw, addr, phno, wallet_bal
+	OUPUT : JSON data
+		attributes:  ans(true/false)
+
+2. login.php
+	Login is done through this file
+	Input : JSON data 
+		attributes:  loginId, passw
+	OUPUT : JSON data
+		attributes:  ans(true/false)
+
+
+
+3. donate_req.php
+
+	Donation request is raised and processing is done through this file
+//Note in our model each time a donation is made then our server forms pairs in the transaction buffer
+//And a client after raising a request to donate periodically checks for status of that transaction
+//after the client gets the exchanged message the row from transaction buffer is deleted
+
+	Input : JSON data 
+		attributes:  loginId, donation, message
+	OUPUT : JSON data
+		attributes:  ans(true/false) (donation request is raised / enough money isnt available in the wallet to donate this amount)
+
+
+
+4. wallet.php
+
+	This file provides an interface for the client app to check the status of its pending donations
+//So periodically (when online & app is in foreground) the client communicates with wallet.php to send its status and
+// if donation is done then send the exchangers money sent and message sent to client.
+
+//Note entry of fields with flag value 1 i.e., whose donations are complete, will only get deleted after communicating above info to client
+
+
+	Input : JSON data 
+		attributes:  loginId
+	OUPUT : JSON data
+		attributes:  tr_id,loginId,donation_rec,message_rec (done)OR null(not done wait more)
+
+******************************************
+
+Other modules and testing based files:
+1. transaction_processing.php
+2. test.php
