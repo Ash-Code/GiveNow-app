@@ -99,7 +99,6 @@ So the concept is that at each donate request the server receives from any one t
 				$query = "UPDATE user SET wallet_bal='$w' WHERE loginId='$l' ";
 				$result= mysql_query($query);
 
-
 			}
 
 			print(json_encode(array('ans' =>'true')));			
