@@ -2,7 +2,6 @@
 function transaction_processing($a,$b,$c)
 {
 
-
 			$query = "insert into trnsc (loginId, donation, message, flag) values('$a','$b','$c','0')";		
 			$result = mysql_query($query);
 			$query = "SELECT tr_id FROM trnsc WHERE loginId='$a' and donation='$b' and message='$c' and flag='0' ";
