@@ -12,7 +12,6 @@ Table 1: user
 	wallet_bal	double		--DEFAULT VALUE=0
 
 
-
 Table 2: trnsc
 	//transaction table
 	//flag value is maintained in the transaction table which denotes
@@ -85,7 +84,6 @@ Files that communicate with the client and perform various operations:
 		attributes:  loginId
 	OUPUT : JSON data
 		attributes:  tr_id,loginId,donation_rec,message_rec (done)OR null(not done wait more)
-
 
 ******************************************
 
