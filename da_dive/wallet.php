@@ -3,7 +3,6 @@ require('common.php');
 //This script provides a service for the client to check for success of his past donations
 //Client Application in android periodically checks for the change in the status
 
-
 if(isset($_POST))
 {
 
